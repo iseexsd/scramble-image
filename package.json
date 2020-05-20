@@ -1,0 +1,17 @@
+{
+  "name": "scramble-image",
+  "version": "0.0.11",
+  "description": "cstimer twisty puzzle image generation in a package",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/iseexsd/scramble-image"
+  },
+  "author": "xsd, cs0x7f",
+  "dependencies": {
+    "canvas": "^2.6.1"
+  }
+}
