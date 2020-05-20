@@ -8,7 +8,23 @@ let image = {};
 	});
 }());
 
-//megaminx, clk
+//megaminx, clk, 2, 3, 4, 5, 6, 7
 module.exports.genImage = (cube, scramble) => {
-	return image[cube].genImage(scramble);
+	if(!isNaN(cube)) {
+		if(cube === "2") {
+			return image["nnn"].genImage(cube, scramble);
+		} else if(cube === "3") {
+			return image["nnn"].genImage(cube, scramble);
+		} else if(cube === "4") {
+			return image["nnn"].genImage(cube, scramble);
+		} else if(cube === "5") {
+			return image["nnn"].genImage(cube, scramble);
+		} else if(cube === "6") {
+			return image["nnn"].genImage(cube, scramble);
+		} else if(cube === "7") {
+			return image["nnn"].genImage(cube, scramble);
+		}
+	} else {
+		return image[cube].genImage(scramble);
+	}
 }
