@@ -8,7 +8,7 @@ let image = {};
 	});
 }());
 
-//megaminx, clk, squareone
+//megaminx, clk, squareone, skewb
 module.exports.genImage = (cube, scramble) => {
 	return image[cube].genImage(scramble);
 }
