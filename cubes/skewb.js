@@ -42,21 +42,21 @@ function parseScramble(scramble) {
     scramble = scramble.split(" ")
     for(let i = 0; i < scramble.length; i++) {
         if(scramble[i] === "R") {
-            parsed[i] = [0, 1 , 1]
+            parsed[i] = [0, 1, 1]
         } else if(scramble[i] === "R'") {
-            parsed[i] = [0, 1 , 3]
+            parsed[i] = [0, 1, 3]
         } else if(scramble[i] === "U") {
-            parsed[i] = [1, 1 , 1]
+            parsed[i] = [1, 1, 1]
         } else if(scramble[i] === "U'") {
-            parsed[i] = [1, 1 , 3]
+            parsed[i] = [1, 1, 3]
         } else if(scramble[i] === "L") {
-            parsed[i] = [2, 1 , 1]
+            parsed[i] = [2, 1, 1]
         } else if(scramble[i] === "L'") {
-            parsed[i] = [2, 1 , 3]
+            parsed[i] = [2, 1, 3]
         } else if(scramble[i] === "B") {
-            parsed[i] = [3, 1 , 1]
+            parsed[i] = [3, 1, 1]
         } else if(scramble[i] === "B'") {
-            parsed[i] = [3, 1 , 3]
+            parsed[i] = [3, 1, 3]
         }
     }
     return parsed
