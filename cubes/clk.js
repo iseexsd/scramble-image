@@ -77,7 +77,7 @@ var clkImage = (function() {
     var movere = /([UD][RL]|ALL|[UDRLy])(\d[+-]?)?/
     var movestr = ['UR', 'DR', 'DL', 'UL', 'U', 'R', 'D', 'L', 'ALL']
 
-    return function(moveseq) {
+    return function(moveseq, colors) {
         var moves = moveseq.split(/\s+/);
         var moveArr = [
             [0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0], //UR
@@ -146,8 +146,8 @@ var clkImage = (function() {
     };
 })();
 
-module.exports.genImage = (scramble) => {
-    return clkImage(scramble);
+module.exports.genImage = (scramble, colorsIn) => {
+    return clkImage(scramble, colorsIn);
 }
 
 var colre = /#[0-9a-fA-F]{3}/g;

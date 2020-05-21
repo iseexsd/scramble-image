@@ -110,8 +110,13 @@ var sq1Image = (function() {
 
     var movere = /^\s*\(\s*(-?\d+),\s*(-?\d+)\s*\)\s*$/
 
-    return function(moveseq) {
-        var cols = "#ff0#f80#0f0#fff#f00#00f".match(colre);
+    return function(moveseq, colorsIn) {
+        let cols = ""
+        if(colorsIn === "default") {
+            cols = "#ff0#f80#0f0#fff#f00#00f".match(colre);
+        } else {
+            cols = colorsIn.match(colre);
+        }
         colors = {
             'U': cols[0],
             'R': cols[1],
@@ -188,8 +193,8 @@ var sq1Image = (function() {
     }
 })();
 
-module.exports.genImage = (scramble) => {
-    return sq1Image(scramble);
+module.exports.genImage = (scramble, colorsIn) => {
+    return sq1Image(scramble, colorsIn);
 }
 
 var colre = /#[0-9a-fA-F]{3}/g;

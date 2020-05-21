@@ -140,8 +140,12 @@ var pyraImage = (function() {
         }
     }
 
-    return function(moveseq) {
-        colors = "#0f0#f00#00f#ff0".match(colre);
+    return function(moveseq, colorsIn) {
+        if(colorsIn === "default") {
+            colors = "#0f0#f00#00f#ff0".match(colre);
+        } else {
+            colors = colorsIn.match(colre);
+        }
         var cnt = 0;
         for (var i = 0; i < 4; i++) {
             for (var f = 0; f < 9; f++) {
@@ -160,8 +164,8 @@ var pyraImage = (function() {
     }
 })();
 
-module.exports.genImage = (scramble) => {
-    return pyraImage(scramble);
+module.exports.genImage = (scramble, colorsIn) => {
+    return pyraImage(scramble, colorsIn);
 }
 
 var colre = /#[0-9a-fA-F]{3}/g;

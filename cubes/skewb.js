@@ -141,8 +141,12 @@ var skewbImage = (function() {
         ], transform);
     }
 
-    return function(moveseq) {
-        colors = "#fff#00f#f00#ff0#0f0#f80".match(colre);
+    return function(moveseq, colorsIn) {
+        if(colorsIn === "default") {
+            colors = "#fff#00f#f00#ff0#0f0#f80".match(colre);
+        } else {
+            colors = colorsIn.match(colre);
+        }
         var cnt = 0;
         for (var i = 0; i < 6; i++) {
             for (var f = 0; f < 5; f++) {
@@ -161,8 +165,8 @@ var skewbImage = (function() {
     }
 })();
 
-module.exports.genImage = (scramble) => {
-    return skewbImage(scramble);
+module.exports.genImage = (scramble, colorsIn) => {
+    return skewbImage(scramble, colorsIn);
 }
 
 var colre = /#[0-9a-fA-F]{3}/g;

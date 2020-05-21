@@ -92,8 +92,12 @@ var mgmImage = (function() {
 
     var movere = /[RD][+-]{2}|U'?/
 
-    return function(moveseq) {
-        colors = "#fff#d00#060#81f#fc0#00b#ffb#8df#f83#7e0#f9f#999".match(colre);
+    return function(moveseq, colorsIn) {
+        if(colorsIn === "default") {
+            colors = "#fff#d00#060#81f#fc0#00b#ffb#8df#f83#7e0#f9f#999".match(colre);
+        } else {
+            colors = colorsIn.match(colre)
+        }
         var state = [];
         for (var i = 0; i < 12; i++) {
             for (var j = 0; j < 11; j++) {
@@ -126,8 +130,8 @@ var mgmImage = (function() {
     };
 })();
 
-module.exports.genImage = (scramble) => {
-    return mgmImage(scramble);
+module.exports.genImage = (scramble, colorsIn) => {
+    return mgmImage(scramble, colorsIn);
 }
 
 var colre = /#[0-9a-fA-F]{3}/g;
