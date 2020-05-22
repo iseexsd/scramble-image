@@ -1,6 +1,6 @@
 {
   "name": "scramble-image",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "cstimer twisty puzzle image generation in a package",
   "main": "main.js",
   "scripts": {

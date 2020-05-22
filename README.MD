@@ -5,6 +5,7 @@ Made from converting cstimer code to a package
 Example Usage:
 
 var fs = require("fs")
+
 var scrambleImage = require("scramble-image")
 
 var scrambleBuffer = await scrambleImage.genImage("megaminx", "R++ D-- U R--")
