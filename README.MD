@@ -17,3 +17,9 @@ Valid inputs for puzzles
 * pyraminx
 * skewb
 * squareone
+* 222
+* 333
+* 444
+* 555
+* 666
+* 777

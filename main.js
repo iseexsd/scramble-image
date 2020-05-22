@@ -8,7 +8,7 @@ let image = {};
 	});
 }());
 
-//megaminx, clk, squareone, skewb, pyraminx
+//megaminx, clk, squareone, skewb, pyraminx, 222, 333, 444, 555, 666, 777
 module.exports.genImage = (cube, scramble, colorsIn) => {
 	return image[cube].genImage(scramble, colorsIn);
 }
