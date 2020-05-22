@@ -8,7 +8,9 @@ var fs = require("fs")
 
 var scrambleImage = require("scramble-image")
 
-var scrambleBuffer = await scrambleImage.genImage("megaminx", "R++ D-- U R--")
+var scrambleBuffer = await scrambleImage.genImage("megaminx", "R++ D-- U R--", "default")
+
+//default specifies the color scheme, an example off a custom one would be "#fff#f0f" etc
 
 fs.writeFileSync("megaminx.png", scrambleBuffer)
 
