@@ -1,6 +1,5 @@
 "use strict";
-
-var canvas, ctx, id;
+var clkCanvas, ctx, id;
 var PI = Math.PI;
 
 function Rotate(arr, theta) {
@@ -23,12 +22,12 @@ function Transform(arr) {
     return ret;
 }
 
-var Canvas = require('canvas');
-
-canvas = new Canvas.createCanvas(375, 180);
-ctx = canvas.getContext('2d');
-
 var clkImage = (function() {
+
+    var Canvas = require("canvas")
+    clkCanvas = new Canvas.createCanvas(375, 180);
+    ctx = clkCanvas.getContext('2d');
+
     function drawClock(color, trans, time, pointer) {
         if (!ctx) {
             return;
@@ -142,7 +141,7 @@ var clkImage = (function() {
         for (var i = 0; i < 8; i++) {
             drawButton(['#919191', '#4c4c4c'][buttons[i]], [width, x[~~(i / 2)], y[i % 2]]);
         }
-        return canvas.toBuffer();
+        return clkCanvas.toBuffer();
     };
 })();
 

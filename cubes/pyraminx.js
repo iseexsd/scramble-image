@@ -1,8 +1,7 @@
 "use strict";
-
 var mathlib = require("../mathlib")
 
-var canvas, ctx;
+var pyraCanvas, ctx;
 var hsq3 = Math.sqrt(3) / 2;
 
 function Rotate(arr, theta) {
@@ -92,12 +91,12 @@ function parseScramble(scramble) {
     return parsed
 }
 
-var Canvas = require('canvas');
-
-canvas = new Canvas.createCanvas(315, 253.31243060694828);
-ctx = canvas.getContext('2d');
-
 var pyraImage = (function() {
+
+    var Canvas = require("canvas")
+    pyraCanvas = new Canvas.createCanvas(315, 253.31243060694828);
+    ctx = pyraCanvas.getContext('2d');
+
     var width = 45;
     var posit = [];
     var colors = ['#0f0', '#f00', '#00f', '#ff0'];
@@ -160,7 +159,7 @@ var pyraImage = (function() {
         for (var i = 0; i < 4; i++) {
             face(i);
         }
-        return canvas.toBuffer()
+        return pyraCanvas.toBuffer()
     }
 })();
 

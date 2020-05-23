@@ -9,5 +9,6 @@ stdin.addListener("data", (d) => {
     d.shift()
     let scramble = d.join(" ")
 
+    fs.unlinkSync("test.png")
     fs.writeFileSync("test.png", scrambleImage.genImage(cubeType, scramble, "default"))
 })

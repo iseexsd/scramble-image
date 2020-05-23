@@ -1,7 +1,8 @@
 "use strict";
+var Canvas = require("canvas")
 var mathlib = require("../mathlib.js")
 
-var canvas, ctx;
+var skewbCanvas, ctx;
 var hsq3 = Math.sqrt(3) / 2;
 
 function Transform(arr) {
@@ -62,12 +63,12 @@ function parseScramble(scramble) {
     return parsed
 }
 
-var Canvas = require('canvas');
-
-canvas = new Canvas.createCanvas(326.26914536239786, 283.280);
-ctx = canvas.getContext('2d');
-
 var skewbImage = (function() {
+
+    var Canvas = require("canvas")
+    skewbCanvas = new Canvas.createCanvas(326.26914536239786, 283.280);
+    ctx = skewbCanvas.getContext('2d');
+
     var width = 45;
     var gap = width / 10;
     var posit = [];
@@ -161,7 +162,7 @@ var skewbImage = (function() {
         for (var i = 0; i < 6; i++) {
             face(i);
         }
-        return canvas.toBuffer();
+        return skewbCanvas.toBuffer();
     }
 })();
 

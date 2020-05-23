@@ -1,8 +1,10 @@
+let nnnCanvas, ctx;
+
 function Transform(arr) {
     var ret;
     for (var i = 1; i < arguments.length; i++) {
         var trans = arguments[i];
-        if (trans.length === 3) {
+        if (trans.length == 3) {
             trans = [trans[0], 0, trans[1] * trans[0], 0, trans[0], trans[2] * trans[0]];
         }
         ret = [[], []];
@@ -41,6 +43,18 @@ function parseScramble(scramble) {
             parsed[i] = [0, 1, 2]
         } else if(scramble[i] === "D'") {
             parsed[i] = [0, 1, 3]
+        } else if(scramble[i] === "Dw") {
+            parsed[i] = [0, 2, 1]
+        } else if(scramble[i] === "Dw2") {
+            parsed[i] = [0, 2, 2]
+        } else if(scramble[i] === "Dw'") {
+            parsed[i] = [0, 2, 3]
+        } else if(scramble[i] === "3Dw") {
+            parsed[i] = [0, 3, 1]
+        } else if(scramble[i] === "3Dw2") {
+            parsed[i] = [0, 3, 2]
+        } else if(scramble[i] === "3Dw'") {
+            parsed[i] = [0, 3, 3]
         }
 
 
@@ -50,6 +64,18 @@ function parseScramble(scramble) {
             parsed[i] = [1, 1, 2]
         } else if(scramble[i] === "L'") {
             parsed[i] = [1, 1, 3]
+        } else if(scramble[i] === "Lw") {
+            parsed[i] = [1, 2, 1]
+        } else if(scramble[i] === "Lw2") {
+            parsed[i] = [1, 2, 2]
+        } else if(scramble[i] === "Lw'") {
+            parsed[i] = [1, 2, 3]
+        } else if(scramble[i] === "3Lw") {
+            parsed[i] = [1, 3, 1]
+        } else if(scramble[i] === "3Lw2") {
+            parsed[i] = [1, 3, 2]
+        } else if(scramble[i] === "3Lw'") {
+            parsed[i] = [1, 3, 3]
         }
 
 
@@ -59,6 +85,18 @@ function parseScramble(scramble) {
             parsed[i] = [2, 1, 2]
         } else if(scramble[i] === "B'") {
             parsed[i] = [2, 1, 3]
+        } else if(scramble[i] === "Bw") {
+            parsed[i] = [2, 2, 1]
+        } else if(scramble[i] === "Bw2") {
+            parsed[i] = [2, 2, 2]
+        } else if(scramble[i] === "Bw'") {
+            parsed[i] = [2, 2, 3]
+        } else if(scramble[i] === "3Bw") {
+            parsed[i] = [2, 3, 1]
+        } else if(scramble[i] === "3Bw2") {
+            parsed[i] = [2, 3, 2]
+        } else if(scramble[i] === "3Bw'") {
+            parsed[i] = [2, 3, 3]
         }
 
 
@@ -68,6 +106,18 @@ function parseScramble(scramble) {
             parsed[i] = [3, 1, 2]
         } else if(scramble[i] === "U'") {
             parsed[i] = [3, 1, 3]
+        } else if(scramble[i] === "Uw") {
+            parsed[i] = [3, 2, 1]
+        } else if(scramble[i] === "Uw2") {
+            parsed[i] = [3, 2, 2]
+        } else if(scramble[i] === "Uw'") {
+            parsed[i] = [3, 2, 3]
+        } else if(scramble[i] === "3Uw") {
+            parsed[i] = [3, 3, 1]
+        } else if(scramble[i] === "3Uw2") {
+            parsed[i] = [3, 3, 2]
+        } else if(scramble[i] === "3Uw'") {
+            parsed[i] = [3, 3, 3]
         }
 
         else if(scramble[i] === "R") {
@@ -76,6 +126,18 @@ function parseScramble(scramble) {
             parsed[i] = [4, 1, 2]
         } else if(scramble[i] === "R'") {
             parsed[i] = [4, 1, 3]
+        } else if(scramble[i] === "Rw") {
+            parsed[i] = [4, 2, 1]
+        } else if(scramble[i] === "Rw2") {
+            parsed[i] = [4, 2, 2]
+        } else if(scramble[i] === "Rw'") {
+            parsed[i] = [4, 2, 3]
+        } else if(scramble[i] === "3Rw") {
+            parsed[i] = [4, 3, 1]
+        } else if(scramble[i] === "3Rw2") {
+            parsed[i] = [4, 3, 2]
+        } else if(scramble[i] === "3Rw'") {
+            parsed[i] = [4, 3, 3]
         }
 
         else if(scramble[i] === "F") {
@@ -84,19 +146,27 @@ function parseScramble(scramble) {
             parsed[i] = [5, 1, 2]
         } else if(scramble[i] === "F'") {
             parsed[i] = [5, 1, 3]
+        } else if(scramble[i] === "Fw") {
+            parsed[i] = [5, 2, 1]
+        } else if(scramble[i] === "Fw2") {
+            parsed[i] = [5, 2, 2]
+        } else if(scramble[i] === "Fw'") {
+            parsed[i] = [5, 2, 3]
+        } else if(scramble[i] === "3Fw") {
+            parsed[i] = [5, 3, 1]
+        } else if(scramble[i] === "3Fw2") {
+            parsed[i] = [5, 3, 2]
+        } else if(scramble[i] === "3Fw'") {
+            parsed[i] = [5, 3, 3]
         }
 
     }
     return parsed
 }
 
-var Canvas = require('canvas');
+var Canvas = require("canvas")
 
-canvas = new Canvas.createCanvas(391, 291);
-ctx = canvas.getContext('2d');
-
-var threeImage = (function() {
-    let size = 3
+var nnnImage = (function() {
     var width = 30;
 
     var posit = [];
@@ -209,19 +279,24 @@ var threeImage = (function() {
         }
     }
 
-    return function(moveseq, colorsIn) {
+    return function(size, moveseq, colorsIn) {
+
+        nnnCanvas = new Canvas.createCanvas(39 * size / 9 * width + 1, 29 * size / 9 * width + 1)
+        ctx = nnnCanvas.getContext("2d")
+
         if(colorsIn === "default") {
             colors = "#ff0#fa0#00f#fff#f00#0d0".match(colre);
         } else {
             colors = colorsIn.match(colre);
         }
+
         var cnt = 0;
         for (var i = 0; i < 6; i++) {
             for (var f = 0; f < size * size; f++) {
                 posit[cnt++] = i;
             }
         }
-        var moves = parseScramble(moveseq, "DLBURF");
+        var moves = parseScramble(moveseq);
         for (var s = 0; s < moves.length; s++) {
             for (var d = 0; d < moves[s][1]; d++) {
                 doslice(moves[s][0], d, moves[s][2], size)
@@ -237,12 +312,12 @@ var threeImage = (function() {
         for (var i = 0; i < 6; i++) {
             face(i, size);
         }
-        return canvas.toBuffer()
+        return nnnCanvas.toBuffer()
     }
 })();
 
-module.exports.genImage = (scramble, colorsIn) => {
-    return threeImage(scramble, colorsIn);
+module.exports.genImage = (size, scramble, colorsIn) => {
+    return nnnImage(size, scramble, colorsIn);
 }
 
 var colre = /#[0-9a-fA-F]{3}/g;

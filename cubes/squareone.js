@@ -1,7 +1,8 @@
 "use strict";
+var Canvas = require("canvas")
 var mathlib = require("../mathlib.js")
 
-var canvas, ctx;
+var squanCanvas, ctx;
 var hsq3 = Math.sqrt(3) / 2;
 var PI = Math.PI;
 
@@ -42,12 +43,12 @@ function drawPolygon(ctx, color, arr, trans) {
     ctx.stroke();
 }
 
-var Canvas = require('canvas');
-
-canvas = new Canvas.createCanvas(495, 283.5);
-ctx = canvas.getContext('2d');
-
 var sq1Image = (function() {
+
+    var Canvas = require("canvas")
+    squanCanvas = new Canvas.createCanvas(495, 283.5);
+    ctx = squanCanvas.getContext('2d');
+
     var posit = [];
     var mid = 0;
 
@@ -189,7 +190,7 @@ var sq1Image = (function() {
             drawPolygon(ctx, colors['R'], [[hsq3, hsq3, -0.5, -0.5], [0.5, -0.5, -0.5, 0.5]], trans);
         }
 
-        return canvas.toBuffer()
+        return squanCanvas.toBuffer()
     }
 })();
 
