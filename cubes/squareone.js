@@ -45,10 +45,6 @@ function drawPolygon(ctx, color, arr, trans) {
 
 var sq1Image = (function() {
 
-    var Canvas = require("canvas")
-    squanCanvas = new Canvas.createCanvas(495, 283.5);
-    ctx = squanCanvas.getContext('2d');
-
     var posit = [];
     var mid = 0;
 
@@ -112,6 +108,10 @@ var sq1Image = (function() {
     var movere = /^\s*\(\s*(-?\d+),\s*(-?\d+)\s*\)\s*$/
 
     return function(moveseq, colorsIn) {
+
+        squanCanvas = new Canvas.createCanvas(495, 283.5);
+        ctx = squanCanvas.getContext('2d');
+
         let cols = ""
         if(colorsIn === "default") {
             cols = "#ff0#f80#0f0#fff#f00#00f".match(colre);
