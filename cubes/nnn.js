@@ -196,6 +196,30 @@ function parseScramble(scramble) {
             parsed[i] = [5, 4, 3]
         }
 
+        else if(scramble[i] === "z") {
+            parsed[i] = [5, -1, -1]
+        } else if(scramble[i] === "z2") {
+            parsed[i] = [5, -1, -2]
+        } else if(scramble[i] === "z'") {
+            parsed[i] = [5, -1, -3]
+        }
+
+        else if(scramble[i] === "y") {
+            parsed[i] = [3, -1, -1]
+        } else if(scramble[i] === "y2") {
+            parsed[i] = [3, -1, -2]
+        } else if(scramble[i] === "y'") {
+            parsed[i] = [3, -1, -3]
+        }
+
+        else if(scramble[i] === "x") {
+            parsed[i] = [4, -1, -1]
+        } else if(scramble[i] === "x2") {
+            parsed[i] = [4, -1, -2]
+        } else if(scramble[i] === "x'") {
+            parsed[i] = [4, -1, -3]
+        }
+
     }
     return parsed
 }
